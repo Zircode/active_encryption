@@ -1,0 +1,4 @@
+require:
+  - rubocop-rspec
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context'] # Rspec DSL has long blocks
