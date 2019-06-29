@@ -26,6 +26,27 @@ gem install active_encryption
 
 TODO: Write usage instructions here
 
+## Configuration
+
+### Encryption setting
+
+The following attributes are configurable in an encryption setting:
+
+| Attribute       | Description | Default value |
+|-----------------|-------------|---------------|
+| ``cipher``      | String with the encryption cipher to use. Can be any cipher returned by OpenSSL::Cipher.ciphers. | 'aes-256-gcm' |
+| ``digest``      | String with the digest to use to sign. Ignored when using an AEAD cipher like 'aes-256-gcm'. | 'SHA1' |
+| ``id``          | Unique ID to identify an encryption setting. It can be an Integer, String, or Symbol. | nil |
+| ``key``         | Cryptographicaly random binary string of the exact size required by the cipher. E.g. 'aes-256-gcm' requires 32 bytes (256 bits). Can be generated with ``SecureRandom.bytes(32)``. It is STRONGLY recommended NOT to set this directly but to use a secret for key derivation. | nil |
+| ``purpose``     | Confines the encrypted attribute to a specific purpose. See https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html#method-i-encrypt_and_sign | nil |
+| ``secret``      | String used to derive an encryption key with PBKDF2. Can be generated with ``SecureRandom.hex(64)`` or ``SecureRandom.urlsafe_base64(64)``. | nil |
+| ``secret_iterations`` | Number of iterations of PBKDF2 to derive the key from the secret. See https://api.rubyonrails.org/classes/ActiveSupport/KeyGenerator.html | 65536 |
+| ``secret_salt`` | Salt for PBKDF2 to derive the key from the secret. | 'ActiveEncryption default key salt' |
+| ``serializer``  | Object serializer to use. E.g.: 'YAML'. | Marshal |
+
+Keys or secrets must NEVER be stored in version control (e.g. git) or in the
+database in an unencrypted form.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
