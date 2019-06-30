@@ -6,5 +6,6 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+- Add DSL to configure the gem
 - Add encryption setting records and YAML-based store to persist them
 - Basic gem skeleton

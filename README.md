@@ -28,6 +28,55 @@ TODO: Write usage instructions here
 
 ## Configuration
 
+```ruby
+# frozen_string_literal: true
+
+ActiveEncryption.configure do |config|
+  # Store containing the encryption settings
+  # Use "config/encryption_settings.yml" to store the settings:
+  config.encryption_setting_store =
+    ActiveEncryption::EncryptionSetting::YamlStore.new(
+      '/path/encryption_settings.yml' # CHANGE ME
+    )
+
+  # ID of the encryption setting to use by default:
+  config.default_encryption_setting_id = :default
+end
+```
+
+You also need a ``encryption_settings.yml`` file:
+
+```yaml
+# WARNING: Changing these encryption settings prevents the decryption
+# of already encrypted data.
+
+# Default encryption setting
+default:
+  # secret: must be a cryptographically random string.
+  # The secret is hashed with PBKDF2 to generate the encryption key.
+  #
+  # You can generate one with:
+  # - "rails secret"
+  # - SecureRandom.hex(64)
+  # - or, SecureRandom.urlsafe_base64(64)
+  #
+  ## WARNING ##
+  # The secret value should NOT be stored in this file directly.
+  # You should instead refer to where the secret value is stored
+  # e.g. refer to Rails credentials/secrets, an environment variable or
+  # a KMS/HSM, etc.
+  secret: <%= ENV['SECRET_KEY'] %>
+  # Salt used to generate the encryption key based on the secret
+  secret_salt: 'ActiveEncryption salt: RANDOM_SALT' # CHANGE ME
+  # Number of iterations for PBKDF2 on the secret.
+  secret_iterations: 65536
+  # Cipher to use. Can be any cipher returned by OpenSSL::Cipher.ciphers.
+  cipher: aes-256-gcm
+  # Digest to use to sign. Default is SHA1. Recommended is SHA256.
+  # Ignored when using an AEAD cipher like 'aes-256-gcm'.
+  digest: SHA256
+```
+
 ### Encryption setting
 
 The following attributes are configurable in an encryption setting:
