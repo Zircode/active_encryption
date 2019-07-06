@@ -2,7 +2,7 @@
 
 require 'active_encryption/version'
 require 'active_encryption/configuration'
-require 'active_encryption/encryptor'
+require 'active_encryption/encryptable'
 
 # The top-level ActiveEncryption module isolates the gem from the host
 # application.
