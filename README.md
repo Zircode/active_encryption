@@ -24,7 +24,17 @@ gem install active_encryption
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class User
+  encrypted_attr :ssn
+end
+```
+
+In this example, ActiveEncryption assumes that you have an attribute
+``ssn_encrypted``.
+
+When storing your encrypted data, please consider the length requirements
+of the database column where you're storing the encrypted data.
 
 ## Configuration
 
