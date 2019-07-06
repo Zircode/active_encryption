@@ -112,6 +112,17 @@ default:
   digest: SHA256
 ```
 
+### Attribute options
+
+``encrypted_attr`` accepts options to override the settings in
+``encryption_settings.yml``.
+
+For example, you can override the ``secret`` and ``cipher`` with options:
+
+```ruby
+encrypted_attr :ssn, secret: 'some secret', cipher: 'aes-128-gcm'
+```
+
 ### Encryption setting
 
 The following attributes are configurable in an encryption setting:
