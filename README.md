@@ -22,6 +22,10 @@ Or install it yourself as:
 gem install active_encryption
 ```
 
+### Rails
+
+ActiveEncryption works with Ruby on Rails 5.0 or higher.
+
 ## Usage
 
 ```ruby
@@ -30,8 +34,29 @@ class User
 end
 ```
 
+Or if you're using ActiveRecord:
+
+```ruby
+class User < ApplicationRecord
+  encrypted_attr :ssn
+end
+```
+
 In this example, ActiveEncryption assumes that you have an attribute
 ``ssn_encrypted``.
+Therefore, you might need a database migration:
+
+```ruby
+class CreateUsers < ActiveRecord::Migration[5.0]
+  def change
+    create_table :users do |t|
+      t.string :ssn_encrypted
+
+      t.timestamps
+    end
+  end
+end
+```
 
 When storing your encrypted data, please consider the length requirements
 of the database column where you're storing the encrypted data.
