@@ -26,6 +26,17 @@ gem install active_encryption
 
 ActiveEncryption works with Ruby on Rails 5.0 or higher.
 
+Run the generator:
+
+```shell
+rails generate active_encryption:install
+```
+
+The generator creates two files:
+
+ - an initializer: ``config/initializers/active_encryption.rb``
+ - a encryption setting YAML file: ``config/encryption_settings.yml``
+
 ## Usage
 
 ```ruby
@@ -62,6 +73,10 @@ When storing your encrypted data, please consider the length requirements
 of the database column where you're storing the encrypted data.
 
 ## Configuration
+
+If you're using Rails, the generator created an initializer
+``config/initializers/active_encryption.rb``, otherwise you need to create
+similar file to configure ActiveEncryption:
 
 ```ruby
 # frozen_string_literal: true
