@@ -2,6 +2,8 @@
 
 ActiveEncryption transparently encrypt (and decrypt!) attributes. It works with any class, but it's primarly intended to be used with ActiveRecord models. Under the hood, it doesn't reinvent the wheel and uses the tried and tested ActiveSupport::MessageEncryptor.
 
+[![Build Status](https://travis-ci.com/Zircode/active_encryption.svg?branch=master)](https://travis-ci.com/Zircode/active_encryption) [![Test Coverage](https://api.codeclimate.com/v1/badges/08c66b215b98a395a0b8/test_coverage)](https://codeclimate.com/github/Zircode/active_encryption/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/08c66b215b98a395a0b8/maintainability)](https://codeclimate.com/github/Zircode/active_encryption/maintainability) [![security](https://hakiri.io/github/Zircode/active_encryption/master.svg)](https://hakiri.io/github/Zircode/active_encryption/master)
+
 ## Installation
 
 Add this line to your application's Gemfile:
