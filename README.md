@@ -24,6 +24,24 @@ Or install it yourself as:
 gem install active_encryption
 ```
 
+### Security
+
+ActiveEncryption is cryptographically signed. To be sure the gem you install
+hasn’t been tampered with:
+
+Add my public key (if you haven’t already) as a trusted certificate
+
+```shell
+gem cert --add <(curl -Ls https://raw.github.com/Zircode/active_encryption/master/certs/garnu.pem)
+gem install active_encryption -P MediumSecurity
+```
+
+The ``MediumSecurity`` trust profile will verify signed gems, but allow the
+installation of unsigned dependencies.
+
+This is necessary because not all of dependencies are signed, so we cannot use
+``HighSecurity``.
+
 ### Rails
 
 ActiveEncryption works with Ruby on Rails 5.0 or higher.

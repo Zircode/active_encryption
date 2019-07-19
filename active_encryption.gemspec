@@ -32,6 +32,10 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
+  spec.cert_chain    = ['certs/garnu.pem']
+  if $PROGRAM_NAME =~ /gem\z/
+    spec.signing_key = File.expand_path('~/.ssh/gem-private_key.pem')
+  end
   spec.required_ruby_version = '>= 2.3'
 
   spec.add_dependency 'activesupport', '>= 5.0.0', '<= 6.1'

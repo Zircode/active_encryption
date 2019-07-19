@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+- Add signature to gem releases
 - Add Rails generator to create default initializer and encryption_settings.yml
 - Add ActiveRecord adapter
 - Add ActiveEncryption::Encryptable concern to (en|de)crypt object attributes
