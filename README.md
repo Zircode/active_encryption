@@ -168,7 +168,7 @@ The following attributes are configurable in an encryption setting:
 | ``digest``      | String with the digest to use to sign. Ignored when using an AEAD cipher like 'aes-256-gcm'. | 'SHA1' |
 | ``id``          | Unique ID to identify an encryption setting. It can be an Integer, String, or Symbol. | nil |
 | ``key``         | Cryptographicaly random binary string of the exact size required by the cipher. E.g. 'aes-256-gcm' requires 32 bytes (256 bits). Can be generated with ``SecureRandom.bytes(32)``. It is STRONGLY recommended NOT to set this directly but to use a secret for key derivation. | nil |
-| ``purpose``     | Confines the encrypted attribute to a specific purpose. See https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html#method-i-encrypt_and_sign | nil |
+| ``purpose``     | Confines the encrypted attribute to a specific purpose. See https://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html | nil |
 | ``secret``      | String used to derive an encryption key with PBKDF2. Can be generated with ``SecureRandom.hex(64)`` or ``SecureRandom.urlsafe_base64(64)``. | nil |
 | ``secret_iterations`` | Number of iterations of PBKDF2 to derive the key from the secret. See https://api.rubyonrails.org/classes/ActiveSupport/KeyGenerator.html | 65536 |
 | ``secret_salt`` | Salt for PBKDF2 to derive the key from the secret. | 'ActiveEncryption default key salt' |
