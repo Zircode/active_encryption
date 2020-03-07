@@ -42,7 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'railties', '>= 5.0.0', '<= 6.1'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake", ">= 12.3.3'
   spec.add_development_dependency 'reek', '~> 5.4.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.72.0'
